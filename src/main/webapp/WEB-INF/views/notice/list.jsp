@@ -6,7 +6,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>공지사항 목록 조회</title>
-		<link rel="stylesheet" href="../One.css/notice.css">
+		<link rel="stylesheet" href="../resources/css/notice.css">
 		<style>
 			table {
 				width : 800px;
@@ -73,6 +73,7 @@
 					<th>글번호</th>
 					<th>글제목</th>
 					<th>글쓴이</th>
+					<th>상품명</th>
 					<th>작성일</th>
 					<th>조회수</th>
 				</tr>
@@ -84,6 +85,7 @@
 						<td>${notice.noticeNo }</td>
 						<td><a href="/notice/detail.do?noticeNo=${notice.noticeNo }">${notice.noticeSubject }</a></td>
 						<td>${notice.noticeWriter }</td>
+						<td>${notice.noticeProduct }</td>
 						<td>${notice.noticeDate }</td>
 						<td>${notice.viewCount }</td>
 					</tr>

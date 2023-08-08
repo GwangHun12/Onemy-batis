@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>로그인</title>
-<link rel="stylesheet" href="../One.css/login.css?after">
+<link rel="stylesheet" href="../resources/css/login.css?after">
 </head>
 <body>
 	<div class="login-wrap">

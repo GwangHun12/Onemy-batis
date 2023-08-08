@@ -26,6 +26,42 @@ public class NoticeDAO {
 		return nList; 
 	}
 
+	public String generatePageNavi(int currentPage) {
+		int totalCount = 200;	
+		int recordCountPerPage = 5;
+		int naviTotalCount = 0;
+		if(totalCount % recordCountPerPage > 0) {
+			naviTotalCount = totalCount / recordCountPerPage + 1;
+		} else {
+			naviTotalCount = totalCount / recordCountPerPage;
+		}
+		int naviCountPerPage = 5;
+		int startNavi = ((currentPage - 1)/naviCountPerPage) * naviCountPerPage + 1;
+		int endNavi = startNavi + naviCountPerPage - 1;
+		if(endNavi > naviTotalCount) {
+			endNavi = naviTotalCount;
+		}
+		boolean needPrev = true;
+		boolean needNext = true;
+		if(startNavi == 1) {
+			needPrev = false;
+		}
+		if(endNavi == naviTotalCount) {
+			needNext = false;
+		}
+		StringBuilder result = new StringBuilder();
+		if(needPrev) {
+			result.append("<a href='/notice/list.do?currentPage="+(startNavi-1)+"'>[이전]</a>");
+		}
+		for(int i = startNavi; i <= endNavi; i++) {
+			result.append("<a href='/notice/list.do?currentPage="+i+"'>"+i+"</a>&nbsp;");
+		}
+		if(needNext) {
+			result.append("<a href='/notice/list.do?currentPage="+(endNavi+1)+"'>[다음]</a>");
+		}
+		return result.toString();
+	}
+	
 	public Notice selectOneById(SqlSession session, int noticeNo) {
 		Notice notice = session.selectOne("OneMemberMapper.selectOneByNo", noticeNo);
 		return notice;

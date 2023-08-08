@@ -8,7 +8,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>메인 인덱스</title>
-		<link rel="stylesheet" href="../One.css/main.css">
+		<link rel="stylesheet" href="./resources/css/main.css">
 	</head>
 	<body>
 		<div id="container"></div>

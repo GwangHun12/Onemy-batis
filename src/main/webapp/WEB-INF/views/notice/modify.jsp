@@ -18,6 +18,14 @@
 						<input type="text" id="" name="noticeSubject" value="${notice.noticeSubject }">
 					</li>
 					<li>
+						<label>상품명</label>
+						<input type="text" id="" name="noticeProduct" value="${notice.noticeProduct }">
+					</li>
+					<li>
+						<label>작성자</label>
+						<input type="text" id="" name="noticeWriter" value="${notice.noticeWriter }">
+					</li>
+					<li>
 						<label>내용</label>
 						<textarea rows="30" cols="40" id="" name="noticeContent">${notice.noticeContent }</textarea>
 					</li>

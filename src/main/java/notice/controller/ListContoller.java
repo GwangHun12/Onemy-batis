@@ -36,9 +36,11 @@ public class ListContoller extends HttpServlet {
 		NoticeService service = new NoticeService();
 		String page = request.getParameter("currentPage") != null ? request.getParameter("currentPage") : "1";
 		int currentPage = Integer.parseInt(page);
-		List<Notice> nList = service.selectNoticeList(currentPage); 
+		PageData pd = service.selectNoticeList(currentPage);
+		List<Notice> nList = pd.getnList(); 
 		if(!nList.isEmpty()) {
 			request.setAttribute("nList", nList);
+			request.setAttribute("pageNavi", pd.getPageNavi());
 			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/notice/list.jsp");
 			view.forward(request, response);
 		} else {

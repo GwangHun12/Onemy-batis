@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import common.SqlSessionTemplate;
+import notice.model.vo.PageData;
 import notice.model.dao.NoticeDAO;
 import notice.model.vo.Notice;
 
@@ -16,11 +17,13 @@ public class NoticeService {
 		nDao = new NoticeDAO();
 	}
 	
-	public List<Notice> selectNoticeList(int currentPage) {
+	public PageData selectNoticeList(int currentPage) {
 		SqlSession session = SqlSessionTemplate.getSqlSession();
 		List<Notice> nList = nDao.selectNoticeList(session, currentPage);
+		String pageNavi = nDao.generatePageNavi(currentPage);
+		PageData pd = new PageData(nList, pageNavi);
 		session.close();
-		return nList;
+		return pd; 
 	}
 
 	public int insertNotice(Notice notice) {
